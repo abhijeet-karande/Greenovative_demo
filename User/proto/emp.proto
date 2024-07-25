@@ -1,0 +1,53 @@
+syntax="proto3";
+
+service EmployeesService{
+    rpc AddEmp(AddRequest) returns (AddResponse);
+    rpc ReadEmp(ReadRequest) returns (ReadResponse);
+    rpc UpdateEmp(UpdateRequest) returns (UpdateResponse);
+    rpc DeleteEmp(DeleteRequest) returns (DeleteResponse);
+}
+
+message AddRequest{
+    int32 id=1;
+    string name=2;
+    string city=3;
+    int32 salary=4;
+}
+
+message AddResponse{
+    string result=1;
+}
+
+message ReadRequest{
+    int32 id=1;
+}
+message ReadResponse{
+    int32 id=1;
+    string name=2;
+    string city=3;
+    int32 salary=4;
+    string result=5;
+    
+}
+message UpdateRequest{
+    int32 id=1;
+    string name=2;
+    string city=3;
+    int32 salary=4;
+}
+message UpdateResponse{
+    string  result=1;
+}
+message DeleteRequest{
+    int32 id=1;
+}
+message DeleteResponse{
+    string result=1;
+}
+
+message Emp{
+    int32 id=1;
+    string name=2;
+    string city=3;
+    int32 salary=4;
+}
