@@ -19,9 +19,11 @@ jobs:
         with:
           node-version: '16'  # Specify the Node.js version
 
-      - name: Install Newman and HTML Reporter
+      - name: Install Newman 
         run: |
           npm install -g newman
+      - name: Install HTML Reporter   
+        run: |  
           npm install -g newman-reporter-html  # Install the HTML reporter globally
 
       - name: Run Newman
