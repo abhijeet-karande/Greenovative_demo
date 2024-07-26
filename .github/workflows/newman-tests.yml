@@ -1,0 +1,27 @@
+name: Run Postman Collection
+
+# Trigger the workflow on every push to the main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  newman-tests:
+    runs-on: windows-latest  # Use the latest Windows runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Checkout the repository code
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2  # Set up Node.js
+        with:
+          node-version: '14'  # Specify the Node.js version
+
+      - name: Install Newman
+        run: npm install -g newman  # Install Newman globally
+
+      - name: Run Newman
+        run: |
+          newman run postman/User_collection.json -e postman/User_environment.json --reporters cli,html --reporter-html-export postman/reports/newman-report.html  # Run the Postman collection with Newman and generate an HTML report
