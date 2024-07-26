@@ -24,7 +24,7 @@ jobs:
           npm install -g newman
       - name: Install HTML Reporter   
         run: |  
-          npm install -g newman-reporter-html  # Install the HTML reporter globally
+          npm i -g newman-reporter-htmlextra  # Install the HTML reporter globally
 
       - name: Run Newman
         run: |
