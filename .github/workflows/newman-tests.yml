@@ -24,4 +24,4 @@ jobs:
 
       - name: Run Newman
         run: |
-          newman run postman/User_collection.json -e postman/User_environment.json --reporters cli,html --reporter-html-export postman/reports/newman-report.html  # Run the Postman collection with Newman and generate an HTML report
+          newman run postman/User_collection.json -e postman/User_environment.json --reporters cli.html --reporter-html-export postman/reports/newman-report.html  # Run the Postman collection with Newman and generate an HTML report
