@@ -19,9 +19,9 @@ jobs:
         with:
           node-version: '16'  # Specify the Node.js version
 
-      - name: Install Newman
-        run: npm install -g newman  # Install Newman globally
+      - name: Install Newman with Reporters
+        run: npm install -g newman newman-reporter-html  # Install Newman and the HTML reporter globally
 
       - name: Run Newman
         run: |
-          newman run postman/User_collection.json -e postman/User_environment.json --reporters cli,html --reporter-html-export postman/reports/newman-report.html  # Run the Postman collection with Newman and generate an HTML report
+          newman run postman/your_collection.json -e postman/your_environment.json --reporters cli,html --reporter-html-export postman/reports/newman-report.html  # Run the Postman collection with Newman and generate an HTML report
