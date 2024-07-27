@@ -13,6 +13,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2  # Checkout the repository code
+      - name: Create dire
+        run : |
+          mkdir TestArtifact 
 
       - name: Set up Node.js
         uses: actions/setup-node@v2  # Set up Node.js
@@ -32,4 +35,9 @@ jobs:
 
       - name: Run Newman
         run: |
-          newman run Postman/User_collection.json -e Postman/User_environment.json -r cli,htmlextra --reporter-htmlextra-export Postman/reports/newman-report.html  
+          newman run Postman/User_collection.json -e Postman/User_environment.json -r cli,htmlextra --reporter-htmlextra-export testArtifacts/htmlreport.html 
+      - name: reports 
+        uses: actions/upload-artifact@v2  
+        with :
+          name: Report
+          path: testArtifacts
