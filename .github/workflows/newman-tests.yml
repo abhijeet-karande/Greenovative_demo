@@ -22,7 +22,7 @@ jobs:
       - name: Install Newman and htmlextra Reporter
         run: |
           npm install -g newman
-          npm install -g newman-reporter-htmlextra  # Install the htmlextra reporter globally
+          npm install -g newman-reporter-htmlextra  
         shell: cmd  # Use cmd shell for compatibility
 
       - name: Verify Installation
