@@ -30,7 +30,7 @@ jobs:
 
       - name: Verify Installation
         run: |
-          npm list -g newman newman-reporter-htmlextra --depth=0  
+          npm list -g --depth=0  
         shell: cmd  # Use cmd shell for compatibility
 
       - name: Run Newman
