@@ -5,16 +5,12 @@ on:
   push:
     branches:
       - main
+
 jobs:
   build:
-    runs-on: windows-latest
-    steps:
-      # - uses: actions/checkout@v4
-      # - name: Install Postman CLI
-      #   run: |
-      #     mkdir Postman/reports
+    runs-on: windows-latest  # Use the latest Windows runner
 
-    
+    steps:
       - name: Checkout code
         uses: actions/checkout@v2  # Checkout the repository code
 
@@ -27,14 +23,9 @@ jobs:
         run: |
           npm install -g newman
           npm install -g newman-reporter-htmlextra  # Install the HTML reporter globally
-        shell: cmd  
+        shell: cmd  # Use cmd shell for compatibility
 
       - name: Run Newman
         run: |
           newman run Postman/User_collection.json -e Postman/User_environment.json -r htmlextra --reporter-htmlextra-export Postman/reports/newman-report.html  # Run the Postman collection with Newman and generate an HTML report
-        shell: cmd
-      # - name: Publish Report
-      #   uses : actions/upload-artifact@v2
-      #   with :
-      #     name : Reports
-      #     path : Postman/reports
+        shell: cmd  # Use cmd shell for compatibility
