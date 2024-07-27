@@ -9,10 +9,10 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install Postman CLI
-        run: |
-          mkdir Postman/reports
+      # - uses: actions/checkout@v4
+      # - name: Install Postman CLI
+      #   run: |
+      #     mkdir Postman/reports
 
     
       - name: Checkout code
