@@ -30,9 +30,9 @@ jobs:
 
       - name: Run Newman
         run: |
-          newman-tests run Postman/User_collection.json -e Postman/User_environment.json -r htmlextra --reporter-htmlextra-export Postman/reports/newman-report.html  # Run the Postman collection with Newman and generate an HTML report
-      - name: Publish Report
-        uses : actions/upload-artifact@v2
-        with :
-          name : Reports
-          path : Postman/reports
+          newman run Postman/User_collection.json -e Postman/User_environment.json -r htmlextra --reporter-htmlextra-export Postman/reports/newman-report.html  # Run the Postman collection with Newman and generate an HTML report
+      # - name: Publish Report
+      #   uses : actions/upload-artifact@v2
+      #   with :
+      #     name : Reports
+      #     path : Postman/reports
