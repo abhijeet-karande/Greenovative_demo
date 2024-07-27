@@ -12,15 +12,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # Checkout the repository code
+        uses: actions/checkout@v3  # Checkout the repository code
       - name: Create dire
         run : |
           mkdir TestArtifact 
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2  # Set up Node.js
+        uses: actions/setup-node@v3  # Set up Node.js
         with:
-          node-version: '16'  # Specify the Node.js version
+          node-version: '16.x'  # Specify the Node.js version
 
       - name: Install Newman and htmlextra Reporter
         run: |
@@ -37,7 +37,7 @@ jobs:
         run: |
           newman run Postman/User_collection.json -e Postman/User_environment.json -r cli,htmlextra --reporter-htmlextra-export testArtifacts/htmlreport.html 
       - name: reports 
-        uses: actions/upload-artifact@v2  
+        uses: actions/upload-artifact@v3  
         with :
           name: Report
           path: testArtifacts
