@@ -27,10 +27,9 @@ jobs:
 
       - name: Verify Installation
         run: |
-          npm list -g newman newman-reporter-htmlextra --depth=0  # List globally installed npm packages to verify installation
+          npm list -g newman newman-reporter-htmlextra --depth=0  
         shell: cmd  # Use cmd shell for compatibility
 
       - name: Run Newman
         run: |
-          newman run Postman/User_collection.json -e Postman/User_environment.json -r cli,htmlextra --reporter-htmlextra-export Postman/reports/newman-report.html  # Run the Postman collection with Newman and generate an HTML report
-        shell: cmd  # Use cmd shell for compatibility
+          newman run Postman/User_collection.json -e Postman/User_environment.json -r cli,htmlextra --reporter-htmlextra-export Postman/reports/newman-report.html  
