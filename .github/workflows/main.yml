@@ -1,0 +1,42 @@
+name: Greenovative_demo
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+
+      - name: Install Newman
+        run: |
+          npm install -g newman
+
+      - name: Run Postman Collection with Newman
+        run: |
+          newman run Postman/User_collection.json -e Postman/User_environment.json -r html,cli --reporter-html-export postman-report.html
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: postman-report
+          path: postman-report.html
