@@ -1,0 +1,36 @@
+name: Greenovative_demo
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Install Newman
+        run: |
+           npm install -g newman newman-reporter-html
+      # - name: Verify Newman and Reporter Installation
+      #   run: |
+      #     newman -v
+      #     npm list -g newman-reporter-html
+          
+      - name: Run Postman Collection with Newman
+        run: |
+          newman run Postman/User_collection.json -e Postman/User_environment.json 
+
+      # - name: Upload Test Results
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: postman-report
+      #     path: postman-report.html
