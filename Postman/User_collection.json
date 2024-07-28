@@ -65,7 +65,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/user/2",
+					"raw": "http://127.0.0.1:5000/user/4",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -88,7 +88,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/user/2",
+					"raw": "http://127.0.0.1:5000/user/4",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -165,7 +165,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/emp/1",
+					"raw": "http://127.0.0.1:5000/emp/4",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -188,7 +188,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/emp/3",
+					"raw": "http://127.0.0.1:5000/emp/4",
 					"protocol": "http",
 					"host": [
 						"127",
