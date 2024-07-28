@@ -3,13 +3,9 @@ name: Greenovative_demo
 on:
   push:
     branches:
-      - master
-  pull_request:
-    branches:
-      - master
-  workflow_dispatch:
+      - main
 jobs:
-  test:
+  build:
     runs-on: windows-latest
 
     steps:
@@ -21,11 +17,11 @@ jobs:
         with:
           python-version: '3.8'
 
-      - name: Install dependencies
-        run: |
-          python -m venv venv
-          source venv/bin/activate
-          pip install -r requirements.txt
+      # - name: Install dependencies
+      #   run: |
+      #     python -m venv venv
+      #     source venv/bin/activate
+      #     pip install -r requirements.txt
 
       - name: Install Newman
         run: |
