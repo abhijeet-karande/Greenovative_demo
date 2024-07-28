@@ -27,10 +27,10 @@ jobs:
           
       - name: Run Postman Collection with Newman
         run: |
-          newman run Postman/User_collection.json -e Postman/User_environment.json -r html,cli --reporter-html-export postman-report.html
+          newman run Postman/User_collection.json -e Postman/User_environment.json 
 
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v2
-        with:
-          name: postman-report
-          path: postman-report.html
+      # - name: Upload Test Results
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: postman-report
+      #     path: postman-report.html
