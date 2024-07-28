@@ -13,28 +13,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Uncomment if Python setup is needed
-      # - name: Set up Python
-      #   uses: actions/setup-python@v2
-      #   with:
-      #     python-version: '3.8'
 
-      - name: Install Newman
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16' 
+
+      - name: Install Newman and Reporter
         run: |
-           npm install -g newman newman-reporter-htmlextra
-        shell: cmd    
-
-      # Optional: Verify Newman and Reporter Installation
-      # - name: Verify Newman and Reporter Installation
-      #   run: |
-      #     newman -v
-      #     npm list -g newman-reporter-htmlextra
-      #   shell: cmd
+          npm install -g newman newman-reporter-htmlextra
+        shell: cmd
 
       - name: Run Postman Collection with Newman
         run: |
           newman run Postman/User_collection.json -e Postman/User_environment.json -r htmlextra --reporter-htmlextra-export newman/report.html
-        shell: cmd 
+        shell: cmd
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v2
