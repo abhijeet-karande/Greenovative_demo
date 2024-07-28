@@ -27,7 +27,7 @@ jobs:
           
       - name: Run Postman Collection with Newman
         run: |
-          newman run Postman/User_collection.json -e Postman/User_environment.json -r html
+          newman run Postman/User_collection.json -e Postman/User_environment.json 
 
       # - name: Upload Test Results
       #   uses: actions/upload-artifact@v2
