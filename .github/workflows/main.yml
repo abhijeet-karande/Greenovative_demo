@@ -20,6 +20,7 @@ jobs:
       - name: Install Newman
         run: |
            npm install -g newman newman-reporter-htmlextra
+        shell: cmd    
       # - name: Verify Newman and Reporter Installation
       #   run: |
       #     newman -v
@@ -28,7 +29,8 @@ jobs:
       - name: Run Postman Collection with Newman
         run: |
           newman run Postman/User_collection.json -e Postman/User_environment.json -r htmlextra
-
+        shell: cmd 
+        
       - name: Upload Test Results
         uses: actions/upload-artifact@v2
         with:
