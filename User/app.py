@@ -9,12 +9,13 @@ app = Flask(__name__)
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        login_data = {
-            "logid": request.headers.get("Logid"),
-            "Password": request.headers.get("Password")
-        }
-        response = requests.post("http://127.0.0.1:5000/login", json=login_data)
-        if response.status_code == 200:
+        token = request.headers.get("token")
+#         # login_data = {
+#         #     "logid": request.headers.get("logid"),
+#         #     "Password": request.headers.get("Password")
+#         # }
+#         # response = requests.post("http://127.0.0.1:5000/login", json=login_data)
+        if token == "Bearer xyz":
             return f(*args, **kwargs)
         else:
             return jsonify({"error": "Unauthorized"}), 401
@@ -23,10 +24,12 @@ def login_required(f):
 @app.route('/login',methods=['POST'])
 def login():
     data = request.json
-    logid=data['logid'],
+    logid=data['logid']
     Password=data['Password']
-    if logid == 'valid_logid' and Password == 'valid_password':
-        return jsonify('passkey:root12'), 200
+    # print(logid)
+    # print(Password)
+    if logid == "Abhijeet@12" and Password == "abhi@11":
+        return jsonify({"token" : "xyz"}), 200
     else:
         return jsonify({"error": "Invalid credentials"}), 401
     
